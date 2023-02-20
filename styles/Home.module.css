@@ -1,0 +1,161 @@
+/* WelcomePage.module.css */
+
+/* Primary colors */
+
+  
+  /* Body styles */
+
+  
+  /* Welcome container styles */
+  .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Scene container styles */
+  .scene {
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+  
+  /* Card container styles */
+  .card {
+    position: relative;
+    width: 400px;
+    height: 600px;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.4, 0.2, 0, 1);
+  }
+  
+  /* Card face styles */
+  .card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  
+  .card__face__front {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-green);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transform: translateZ(0px);
+  }
+  
+/* Card face back styles */
+.card__face__back {
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-green);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    
+  }
+  
+  /* Card flip button styles */
+  .card__flip {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 0 0 15px 15px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  .card__signIn {
+    
+
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 10px;
+    width: 20%;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .card__signUp {
+    
+    
+    background-color: var(--primary-blue);
+    color: var(--white);
+    border: none;
+    padding: 10px;
+    width: 20%;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  
+  /* Card content styles */
+  .card__content {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-green);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transform: rotateY(-180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Sign in and sign up container styles */
+  .signin, .signup {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(var(--gray-medium), 0.5);
+  }
+  
+  /* Sign in container styles */
+  .signin {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Sign up container styles */
+  .signup {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Popup container styles */
+  .card__face__back .signin {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .card__face__back .signup {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Card container styles */
+.card.isFlipped {
+  transform: rotateY(180deg);
+}
+
+  
+  /* Form styles */
+ 

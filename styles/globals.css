@@ -1,0 +1,62 @@
+/* Primary colors */
+:root {
+  --primary-green: #4CAF50;
+  --primary-blue: #2196F3;
+}
+
+/* Neutral colors */
+:root {
+  --white: #FFFFFF;
+  --gray-medium: #CCCCCC;
+  --gray-dark: #333333;
+}
+
+/* Font family */
+:root {
+  --body-font: 'Arial', sans-serif;
+}
+
+/* Body styles */
+body {
+  font-family: var(--body-font);
+  background-color: var(--primary-blue);
+  color: var(--white);
+  margin: 0;
+  padding: 0;
+  
+}
+
+/* Form input styles */
+input {
+  border: none;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 18px;
+}
+
+/* Form input focus styles */
+input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--primary-blue);
+}
+
+/* Form link styles */
+form a {
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+form a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 600px) {
+  /* Card container styles */
+  .card {
+    width: 300px;
+    height: 450px;
+  }
+}
