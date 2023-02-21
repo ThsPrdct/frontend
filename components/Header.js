@@ -24,27 +24,25 @@ function Header() {
 	const user = useSelector((state) => state.user.value);
 
 	const handleRegister = () => {
-    fetch ("http://localhost:3000/users/signup", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: signUpUsername, password: signUpPassword }),
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data); 
-			if (data.result) {
-				dispatch(login(signUpUsername))
-				setSignUpUsername("");
-				setSignUpPassword("");
-			}
-        })
-	}
+		fetch('http://localhost:3000/users/signup', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ username: signUpUsername, password: signUpPassword }),
+		}).then(response => response.json())
+			.then(data => {
+				if (data.result) {
+					dispatch(login({ username: signUpUsername, token: data.token }));
+					setSignUpUsername('');
+					setSignUpPassword('');
 
-	const handleLogout = () => {
-		dispatch(logout());
+				
+				}
+			});
 	};
 
-	const handleConnection= () => {
+  
+
+  const handleConnection= () => {
     fetch ("http://localhost:3000/users/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -53,18 +51,22 @@ function Header() {
         .then(response => response.json())
         .then(data => {
             console.log(data); 
-			if (data.result) {
-				dispatch(login(signInUsername))
-				setSignInUsername("");
-				setSignInPassword("");
-			}
+      if (data.result) {
+        dispatch(login({username: signInUsername, token: data.token}))
+        setSignInUsername("");
+        setSignInPassword("");       
+					
+      }
         })
-	}
+  };
 
 	useEffect(() => {
 		setDate(new Date());
 	}, []);
 
+	const handleLogout = () => {
+		dispatch(logout());
+	  };
 
 	const showModal = () => {
 		setIsModalVisible(!isModalVisible);
@@ -110,9 +112,7 @@ function Header() {
             	onChange={(e)   => setSignInPassword(e.target.value)} 
             	value={signInPassword}
             />		
-            <button id="register" onClick={() => handleConnection()}>
-				Connect
-			</button>
+            	<Link href="/feed"><button className={styles.card__signIn} id="connection" onClick={() => handleConnection}>Sign in</button></Link>
 			</div>
 			
 		</div>
@@ -120,35 +120,42 @@ function Header() {
 	);
 	 }
 
-	let userSection;
-	if (user.isConnected) {
-		userSection = (
-			<div className={styles.logoutSection}>
-				<p>Welcome {user.username} /</p>
-				<button onClick={ () => handleLogout()}>Logout</button>
-			</div>
-		);
-	} else {
-
-	if (isModalVisible) {
-		userSection = <FontAwesomeIcon icon={faXmark} onClick={() => showModal()} className={styles.userSection} />;
-	} else {
-		userSection = <FontAwesomeIcon icon={faUser} onClick={() => showModal()} className={styles.userSection} />;
-	}
-}
+	 let userSection;
+	 if (user) {
+		 userSection = (
+			 <div className={styles.logoutSection}>
+				 <p>Welcome {user.username} / </p>
+				 <Link href="/"><button onClick={ () => handleLogout()}>Logout</button></Link>
+			 </div>
+		 );
+	 } else {
+		 if (isModalVisible) {
+			 userSection =
+				 <div className={styles.headerIcons}>
+					 <FontAwesomeIcon onClick={showModal} className={styles.userSection} icon={faXmark} />
+				 </div>
+		 } else {
+			 userSection =
+				 <div className={styles.headerIcons}>
+					 <FontAwesomeIcon onClick={showModal} className={styles.userSection} icon={faUser} />
+		
+				 </div>								
+				 
+		 }
+	 }
+				
 
 
 	return (
 		<header className={styles.header}>
 			<div className={styles.logoContainer}>
 				<Moment className={styles.date} date={date} format="MMM Do YYYY" />
-				<h1 className={styles.title}>timber</h1>
+				<h1 className={styles.title}>TIMBER</h1>
 				{userSection}
 			</div>
 
 			<div className={styles.linkContainer}>
-				<Link href="/"><span className={styles.link}>Articles</span></Link>
-				<Link href="/bookmarks"><span className={styles.link}>Bookmarks</span></Link>
+				<Link href="/feed"><span className={styles.link}>Feed</span></Link>
 			</div>
 
 			{isModalVisible && <div id="react-modals">
