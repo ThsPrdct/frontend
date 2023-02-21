@@ -10,6 +10,7 @@ import { login, logout } from '../reducers/user';
 
 
 
+
 function Header() {
 	const [date, setDate] = useState('2050-11-22T23:59:59');
 	const [isModalVisible, setIsModalVisible] = useState(false);
@@ -121,7 +122,7 @@ function Header() {
 	 }
 
 	 let userSection;
-	 if (user) {
+	 if (user.token) {
 		 userSection = (
 			 <div className={styles.logoutSection}>
 				 <p>Welcome {user.username} / </p>

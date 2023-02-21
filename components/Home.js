@@ -18,7 +18,7 @@ function Home() {
 	const [signInPassword, setSignInPassword] = useState('');
 
  
-	const user = useSelector((state) => state.user.value);
+
 
   const handleRegister = () => {
 		fetch('http://localhost:3000/users/signup', {
