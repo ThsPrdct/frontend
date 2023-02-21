@@ -7,6 +7,7 @@ import { Modal } from 'antd';
 import Link from 'next/link';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout } from '../reducers/user';
+import { useRouter } from 'next/router';
 
 
 
@@ -14,6 +15,7 @@ import { login, logout } from '../reducers/user';
 function Header() {
 	const [date, setDate] = useState('2050-11-22T23:59:59');
 	const [isModalVisible, setIsModalVisible] = useState(false);
+	const router = useRouter();
 	
 	const [signUpUsername, setSignUpUsername] = useState("");
 	const [signUpPassword, setSignUpPassword] = useState("");
@@ -23,6 +25,11 @@ function Header() {
 
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.user.value);
+
+	
+	
+
+
 
 	const handleRegister = () => {
 		fetch('http://localhost:3000/users/signup', {
@@ -35,6 +42,8 @@ function Header() {
 					dispatch(login({ username: signUpUsername, token: data.token }));
 					setSignUpUsername('');
 					setSignUpPassword('');
+					setIsModalVisible(false);
+					
 
 				
 				}
@@ -55,7 +64,9 @@ function Header() {
       if (data.result) {
         dispatch(login({username: signInUsername, token: data.token}))
         setSignInUsername("");
-        setSignInPassword("");       
+        setSignInPassword("");    
+		setIsModalVisible(false);
+		   
 					
       }
         })
@@ -78,25 +89,7 @@ function Header() {
 	 modalContent = (
 		<div className={styles.registerContainer}>
 			<div className={styles.registerSection}>
-				<p>Sign-up</p>	
-				<input 
-            	type="text" 
-            	placeholder="Username" 
-            	id="signUpUsername" 
-            	onChange={(e)   => setSignUpUsername(e.target.value)} 
-            	value={signUpUsername}
-            	/>						
-            	<input 
-            	type="password" 
-           	 	placeholder="Password" 
-           	 	id="signUpPassword" 
-            	onChange={(e)   => setSignUpPassword(e.target.value)} 
-            	value={signUpPassword}
-            />		
-            <button id="register" onClick={() => handleRegister()}>
-				Register
-			</button>
-			</div>
+				
 			<div className={styles.registerSection}>
 				<p>Sign-in</p>				
 				<input 
@@ -113,9 +106,9 @@ function Header() {
             	onChange={(e)   => setSignInPassword(e.target.value)} 
             	value={signInPassword}
             />		
-            	<Link href="/feed"><button className={styles.card__signIn} id="connection" onClick={() => handleConnection}>Sign in</button></Link>
+            	<button className={styles.card__signIn} id="connection" onClick={() => router.push('/feed') && handleConnection()}>Sign in</button>
 			</div>
-			
+			</div>
 		</div>
 		
 	);
@@ -125,8 +118,8 @@ function Header() {
 	 if (user.token) {
 		 userSection = (
 			 <div className={styles.logoutSection}>
-				 <p>Welcome {user.username} / </p>
-				 <Link href="/"><button onClick={ () => handleLogout()}>Logout</button></Link>
+				 <p>Welcome {user.username}</p>
+				 <button className={styles.logOutBtn} onClick={() => router.push('/') && handleLogout()}>Logout</button>
 			 </div>
 		 );
 	 } else {
@@ -155,9 +148,6 @@ function Header() {
 				{userSection}
 			</div>
 
-			<div className={styles.linkContainer}>
-				<Link href="/feed"><span className={styles.link}>Feed</span></Link>
-			</div>
 
 			{isModalVisible && <div id="react-modals">
 				<Modal getContainer="#react-modals" className={styles.modal} visible={isModalVisible} closable={false} footer={null}>

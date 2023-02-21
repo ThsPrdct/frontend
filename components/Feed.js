@@ -2,18 +2,29 @@ import { useSelector } from 'react-redux';
 import Head from 'next/head';
 import styles from '../styles/Feed.module.css';
 import Trends from './Trends';
-import Publications from './Publications';
+import Timbers from './Timbers';
 
 function Feed() {
     const likes  = useSelector((state) => state.likes.value);
 
 
-  let publications = <p>No Trends Yet</p>;
+  let timbers = <p>No Timbers Yet</p>;
   if (likes.length > 0) {
-    publications = likes.map((data, i) => {
-      return <Publications key={i} {...data} isLiked />;
+    timbers = likes.map((data, i) => {
+      return <Timbers key={i} {...data} isLiked />;
     });
   }
+
+  let trends = <p>No Trends Yet</p>;
+  if (timbers.length > 0) {
+    trends = timbers.map((data, i) => {
+      return <Trends key={i} {...data} isLiked />;
+    });
+  }
+
+  
+
+  
 
   
 
@@ -25,10 +36,10 @@ function Feed() {
 			<div className={styles.container}>
 				<h2 className={styles.title}>Feed</h2>
                 <div className={styles.trendsContainer}>
-                    <Trends />
+                    {trends}
                 </div>
 				<div className={styles.publicationContainer}>
-					{publications}
+					{timbers}
 				</div>
 			</div>
 		</div>

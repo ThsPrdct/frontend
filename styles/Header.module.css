@@ -1,20 +1,27 @@
 @font-face {
-	font-family: "Old London";
-	src: url("/fonts/OldLondon.ttf");
+	font-family: "Timber";
+	src: url("/fonts/Timber.ttf");
 }
 
 .header {
 	border-bottom: 2px rgb(233, 190, 89) solid;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
+	justify-items: center;
+	font-family: "Timber";
+	
+	
 }
 
 .title {
 	font-size: 44px;
-	font-family: "Old London";
+	font-family: "Timber";
 	text-shadow: 1px 1px 0px #000;
+	color:  #158518;
+	
+	
 }
 
 .logoContainer {
@@ -34,12 +41,15 @@
 	text-transform: uppercase;
 	font-size: 11px;
 	letter-spacing: 1px;
+	color:  #158518;
 }
 
 .userSection {
 	font-size: 22px;
 	width: 12vw;
 	cursor: pointer;
+	font-family: "Timber";
+	
 }
 
 .userSection:hover {
@@ -49,6 +59,12 @@
 .date {
 	width: 12vw;
 	text-align: center;
+	
+	
+}
+
+.logOutBtn {
+	font-family: "Timber";
 }
 
 .link {
@@ -66,12 +82,16 @@
 	display: flex;
 	margin-bottom: 10px;
 	border-top: 0.5px lightgray solid;
+	font-family: "Timber";
+	
 }
 
 .registeredContainer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-family: "Timber";
+	
 }
 
 .registerSection {
@@ -80,15 +100,22 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	font-family: "Timber";
+
 }
 
 .logoutSection {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-family: "Timber";
+	margin-right: 20px;
+	flex-direction: column;
+	
 }
 
 .headerIcons {
+
 	display: flex;
 	align-items: center;
 	justify-content: space-around;

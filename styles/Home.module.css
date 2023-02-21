@@ -4,10 +4,15 @@
 
   
   /* Body styles */
-
+  @font-face {
+    font-family: "Timber";
+    src: url("/fonts/Timber.ttf");
+  }
+  
   
   /* Welcome container styles */
   .container {
+    font-family: "Timber";
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -22,6 +27,7 @@
   
   /* Card container styles */
   .card {
+    font-family: "Timber";
     position: relative;
     width: 400px;
     height: 600px;
@@ -73,6 +79,7 @@
     border-radius: 0 0 15px 15px;
     cursor: pointer;
     font-size: 18px;
+    font-family: "Timber";
   }
   .card__signIn {
     
@@ -85,11 +92,12 @@
     border-radius: 15px;
     cursor: pointer;
     font-size: 18px;
+    font-family: "Timber";
   }
   
   .card__signUp {
     
-    
+    font-family: "Timber";
     background-color: var(--primary-blue);
     color: var(--white);
     border: none;
@@ -131,6 +139,7 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease-in-out;
+    font-family: "Timber";
   }
   
   /* Sign up container styles */
@@ -138,17 +147,20 @@
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease-in-out;
+    font-family: "Timber";
   }
   
   /* Popup container styles */
   .card__face__back .signin {
     opacity: 1;
     visibility: visible;
+    font-family: "Timber";
   }
   
   .card__face__back .signup {
     opacity: 1;
     visibility: visible;
+    font-family: "Timber";
   }
 
   /* Card container styles */
