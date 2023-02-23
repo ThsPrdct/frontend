@@ -1,4 +1,10 @@
 /* Primary colors */
+@font-face {
+	font-family: "Timber";
+	src: url("/fonts/Timber.ttf");
+  color: var(--dark);
+}
+
 :root {
   --primary-green: #158518;
   --primary-blue: #185484;
@@ -9,19 +15,21 @@
   --white: #FFFFFF;
   --gray-medium: #CCCCCC;
   --gray-dark: #333333;
+  --dark : #000;
 }
 
 /* Font family */
 :root {
-  --body-font: 'Arial', sans-serif;
+  --body-font: 'Timber';
 }
 
 /* Body styles */
 body {
-  font-family: var(--body-font);
+  font-family: "Timber";
   background-color: var(--primary-blue);
   margin: 0;
   padding: 0;
+  text-shadow: 1px 1px 0px #158518;
   
 }
 
@@ -33,12 +41,13 @@ input {
   border-radius: 5px;
   width: 100%;
   font-size: 18px;
+  font-family: "Timber";
+  text-shadow: 1px 1px 0px #158518;
 }
 
 /* Form input focus styles */
 input:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--primary-blue);
 }
 
 /* Form link styles */

@@ -1,34 +1,82 @@
-.publications {
-	width: 400px;
-	height: 400px;
-	margin: 10px;
-}
-
-.divider {
-	width: 100%;
-	height: 1px;
-	background-color: rgb(233, 190, 89);
-	margin: 15px 0px 15px 0px
-}
-
-.publicationsHeader {
+.timbersContainer {
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+	padding: 20px;
+  }
+  
+  .timbersHeader {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 20px;
+  }
+  
+  .timber {
+	width: 100%;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	padding: 20px;
+	margin-bottom: 20px;
+  }
+  
+  .timberHeader {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+  }
+  
+  .timberAvatar {
+	width: 40px;
 	height: 40px;
-}
-
-.likeIcon {
+	border-radius: 50%;
+	margin-right: 10px;
+  }
+  
+  .timberUsername {
+	font-size: 16px;
+	font-weight: 600;
+  }
+  
+  .timberTimestamp {
+	font-size: 14px;
+	font-weight: 400;
+	margin-left: auto;
+  }
+  
+  .timberContent {
+	font-size: 16px;
+	font-weight: 400;
+	margin-bottom: 10px;
+  }
+  
+  .timberImage {
+	max-width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+  }
+  
+  .timberActions {
+	display: flex;
+	align-items: center;
+  }
+  
+  .timberAction {
+	font-size: 14px;
+	font-weight: 400;
+	margin-right: 10px;
+	display: flex;
+	align-items: center;
+	color: #158518;
+  }
+  
+  .timberBookmark {
+	margin-right: 5px;
+  }
+  
+  .timberLikeButton {
 	cursor: pointer;
-}
-
-.likeIcon:hover {
-	opacity: 0.6;
-}
-
-.hiddeIcon:hover {
-	opacity: 0.6;
-}
-
-.hiddeIcon {
-	cursor: pointer;
-}
+  }
+  

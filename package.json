@@ -1,6 +1,6 @@
 {
   "name": "timber",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -17,7 +17,8 @@
     "antd": "^4.21.2",
     "bcrypt": "^5.1.0",
     "moment": "^2.29.3",
-    "next": "^12.3.4",
+    "next": "12.1.6",
+    "node-fetch": "2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-moment": "^1.1.2",
@@ -34,19 +35,7 @@
     "@types/cors": "^2.8.13",
     "jest": "^28.1.0",
     "jest-environment-jsdom": "^28.1.0",
+    "next-router-mock": "^0.7.4",
     "node-fetch": "2"
-  },
-  "main": "index.js",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ThsPrdct/frontend.git"
-  },
-  "keywords": [],
-  "author": "",
-  "bugs": {
-    "url": "https://github.com/ThsPrdct/frontend/issues"
-  },
-  "homepage": "https://github.com/ThsPrdct/frontend#readme",
-  "description": ""
+  }
 }

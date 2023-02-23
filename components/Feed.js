@@ -1,50 +1,64 @@
-import { useSelector } from 'react-redux';
-import Head from 'next/head';
-import styles from '../styles/Feed.module.css';
-import Trends from './Trends';
-import Timbers from './Timbers';
+import { useState } from "react";
+import Head from "next/head";
+import styles from "../styles/Feed.module.css";
+import Trends from "./Trends";
+import Timbers from "./Timbers";
+import { useRouter } from "next/router";
 
 function Feed() {
-    const likes  = useSelector((state) => state.likes.value);
+  const [launchedCapsule, setLaunchedCapsule] = useState("");
+  const router = useRouter();
 
+  const handleLaunch = () => {
+    fetch("http://localhost:3000/launches/send", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        content: launchedCapsule,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        if (data.result) {
+          setLaunchedCapsule("");
+        }
+      });
+  };
 
-  let timbers = <p>No Timbers Yet</p>;
-  if (likes.length > 0) {
-    timbers = likes.map((data, i) => {
-      return <Timbers key={i} {...data} isLiked />;
-    });
-  }
-
-  let trends = <p>No Trends Yet</p>;
-  if (timbers.length > 0) {
-    trends = timbers.map((data, i) => {
-      return <Trends key={i} {...data} isLiked />;
-    });
-  }
-
-  
-
-  
-
-  
-
-	return (
-		<div>
-			<Head>
-				<title>Timber - Feed</title>
-			</Head>
-			<div className={styles.container}>
-				<h2 className={styles.title}>Feed</h2>
-                <div className={styles.trendsContainer}>
-                    {trends}
-                </div>
-				<div className={styles.publicationContainer}>
-					{timbers}
-				</div>
-			</div>
-		</div>
-
-	);
+  return (
+    <div>
+      <Head>
+        <title>Timber - Feed</title>
+      </Head>
+      <div className={styles.container}>
+        <div className={styles.trendsContainer}>
+          <h2 className={styles.trendsTitle}>New Trends</h2>
+          <Trends />
+        </div>
+        <div className={styles.timbersContainer}>
+          <h2 className={styles.timbersTitle}>News Feed</h2>
+          <Timbers />
+        </div>
+      </div>
+      <div className={styles.addSection}>
+        <input
+          type="text"
+          id="launchedCapsule"
+          placeholder="New launch..."
+          value={launchedCapsule}
+          onChange={(e) => setLaunchedCapsule(e.target.value)}
+        />
+        <button
+          className={styles.launchBtn}
+          type="button"
+          onClick={handleLaunch}
+        >
+          Launch
+        </button>
+      </div>
+    </div>
+  );
 }
 
 export default Feed;

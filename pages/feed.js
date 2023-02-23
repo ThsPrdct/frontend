@@ -1,4 +1,4 @@
-import Feed from '../components/Feed.js';
+import Feed from "../components/Feed";
 
 function FeedPage() {
   return <Feed />;

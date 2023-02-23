@@ -1,14 +1,91 @@
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #FFFFFF;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-  }
+@font-face {
+	font-family: "Timber";
+	src: url("/fonts/Timber.ttf");
+}
 
-  .title {
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 20px;
-  }
+.container {
+  max-width: 1634px;
+  margin: 0 auto;
+  padding: 10px;
+  background-color: #158518;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 0px #158518;
+  border-radius: 5px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.trendsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+  padding: 20px;
+  background-color:  #185484;
+  border-radius: 6px;
+  margin-right: 5px;
+}
+
+.timbersContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  height: 100%;
+  padding: 20px;
+  background-color:  #185484;
+  margin-left: 5px;
+  border-radius: 6px;
+}
+
+.timbersTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.trendsTitle {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.addSection {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px;
+  background-color: #158518;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 0px #158518;
+  border-radius: 5px;
+  border: #158518 solid;
+  padding: 10px;
+
+}
+
+.launchBtn {
+  font-family: "Timber";
+  text-shadow: 1px 1px 0px #158518;
+  border-radius: 5px;
+  height: 40px;
+  margin-left: 2px;
+  
+
+}
+
